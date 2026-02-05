@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-primary-700 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 px-4 py-2 rounded-lg font-medium
+           border border-gray-300 hover:bg-gray-50 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-danger-500 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-danger-600 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-danger-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-success {
+    @apply bg-success-500 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-success-600 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-success-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-icon {
+    @apply p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700
+           transition-colors duration-200 focus:outline-none focus:ring-2
+           focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           placeholder:text-gray-400 text-gray-900;
+  }
+
+  .select-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           bg-white text-gray-900;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200;
+  }
+
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600
+           hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200;
+  }
+
+  .sidebar-link-active {
+    @apply bg-primary-50 text-primary-700 hover:bg-primary-100 hover:text-primary-800;
+  }
+
+  .pipeline-column {
+    @apply flex-1 min-w-[300px] max-w-[350px] bg-gray-50 rounded-xl p-4;
+  }
+
+  .deal-card {
+    @apply bg-white rounded-lg p-4 shadow-sm border border-gray-200
+           cursor-pointer hover:shadow-md transition-all duration-200
+           hover:border-primary-300;
+  }
+
+  .deal-card-dragging {
+    @apply shadow-lg border-primary-400 ring-2 ring-primary-200;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50
+           flex items-center justify-center p-4;
+  }
+
+  .modal-content {
+    @apply bg-white rounded-2xl shadow-xl max-w-2xl w-full max-h-[90vh]
+           overflow-y-auto;
+  }
+
+  .tab-button {
+    @apply px-4 py-2 text-sm font-medium text-gray-500 border-b-2 border-transparent
+           hover:text-gray-700 hover:border-gray-300 transition-colors duration-200;
+  }
+
+  .tab-button-active {
+    @apply text-primary-600 border-primary-600;
+  }
+
+  .stat-card {
+    @apply card p-6 flex flex-col gap-2;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold text-gray-900;
+  }
+
+  .stat-label {
+    @apply text-sm text-gray-500 font-medium;
+  }
+
+  .stat-change-positive {
+    @apply text-success-600 text-sm font-medium;
+  }
+
+  .stat-change-negative {
+    @apply text-danger-600 text-sm font-medium;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animation classes */
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
