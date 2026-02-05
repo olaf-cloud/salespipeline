@@ -1,6 +1,5 @@
 'use client';
 
-import { useSortable } from '@hello-pangea/dnd';
 import { Building2, Calendar, User, Euro, Percent } from 'lucide-react';
 import { Deal } from '@/types';
 import { formatBedrag, formatDatumKort, cn } from '@/lib/utils';
@@ -84,42 +83,6 @@ export function DealCard({ deal, onClick, isDragging }: DealCardProps) {
           )}
         </div>
       </div>
-    </div>
-  );
-}
-
-// Draggable wrapper
-interface DraggableDealCardProps {
-  deal: Deal;
-  index: number;
-  onClick: () => void;
-}
-
-export function DraggableDealCard({ deal, index, onClick }: DraggableDealCardProps) {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
-    id: deal.id,
-    data: {
-      type: 'deal',
-      deal,
-    },
-  });
-
-  const style = {
-    transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
-    transition,
-    opacity: isDragging ? 0.5 : 1,
-  };
-
-  return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <DealCard deal={deal} onClick={onClick} isDragging={isDragging} />
     </div>
   );
 }
